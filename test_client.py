@@ -3,9 +3,11 @@ import os
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
-# 设置和风天气 API 环境变量
-os.environ["QWEATHER_API_KEY"] = "xxx"
-os.environ["QWEATHER_API_HOST"] = "https://xxx.re.qweatherapi.com"
+# 从环境变量中获取和风天气 API 配置
+# 在运行此脚本之前，请确保已设置 QWEATHER_API_KEY 和 QWEATHER_API_HOST
+if "QWEATHER_API_KEY" not in os.environ or "QWEATHER_API_HOST" not in os.environ:
+    print("错误：请设置 QWEATHER_API_KEY 和 QWEATHER_API_HOST 环境变量。")
+    exit(1)
 
 async def main():
     # 传递当前环境变量给子进程

@@ -1,7 +1,11 @@
 [project]
 name = "mcp-server-weather"
 version = "0.1.0"
-description = "Add your description here"
+description = "A weather server that provides real-time weather information for a specified city by integrating with the QWeather API."
+authors = [
+    { name = "panger", email = "panger@example.com" },
+]
+license = "MIT"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
