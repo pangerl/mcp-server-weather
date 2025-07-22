@@ -55,9 +55,38 @@ pip install -r requirements.txt
 pip install .
 ```
 
-2. 配置环境变量（见上文）
+2. 配置环境变量（见下方配置示例，或使用 .env 文件/命令行 -e 传递）
 
-3. 启动服务
+3. 使用 uv 启动服务（推荐）
+
+```bash
+uv run main.py
+```
+
+4. MCP Client 配置示例
+
+```json
+{
+  "weather": {
+    "disabled": false,
+    "timeout": 60,
+    "type": "stdio",
+    "command": "uv",
+    "args": [
+      "--directory",
+      "/path/to/mcp-server-weather",
+      "run",
+      "main.py"
+    ],
+    "env": {
+      "QWEATHER_API_KEY": "xxx",
+      "QWEATHER_API_HOST": "https://xxx.re.qweatherapi.com"
+    }
+  }
+}
+```
+
+如需传统方式启动，也可使用：
 
 ```bash
 python main.py
