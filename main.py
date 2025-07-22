@@ -72,10 +72,11 @@ class GetCurrentWeatherInput(BaseModel):
 
 
 @app.tool()
-async def get_current_weather(input: GetCurrentWeatherInput):
-    """
-    Get the current real-time weather for a specific city.
-    It first finds the location ID for the city and then queries the weather.
+async def get_current_weather(input: GetCurrentWeatherInput) -> dict:
+    """Get the current real-time weather for a specific city.
+
+    Args:
+        input: dict, with format {'city': '城市名'} (e.g. {'city': 'beijing'})
     """
     try:
         location_id = await query_location_id(input.city)
